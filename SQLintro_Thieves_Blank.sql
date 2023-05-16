@@ -155,5 +155,7 @@ ORDER BY SUM(amount) DESC;
 -- HW #1 ------------------------------------
 
 SELECT first_name, last_name
-FROM actorWHERE last_name = 'Wahlberg';
-answwer = 2
+FROM actor
+WHERE last_name = 'Wahlberg';
+
+--answwer = 2
