@@ -4,7 +4,7 @@ SELECT first_name, last_name
 FROM actor
 WHERE last_name = 'Wahlberg';
 
---> ANSWER: 2
+-> ANSWER: 2
 
 
 
@@ -15,7 +15,7 @@ SELECT COUNT(payment)
 FROM payment
 WHERE amount >= 3.99 AND amount <= 5.99
 
---> ANSWER: 0
+-> ANSWER: 0
 
 
 
@@ -45,18 +45,50 @@ FROM inventory
 GROUP BY film_id
 ORDER BY COUNT(*) DESC
 
------------------------------------
+------------------------------------------
 
 
 
 
 --4. How many customers have the last name ‘William’?
 
+SELECT last_name
+FROM customer
+WHERE last_name = 'William';
+
+-> ANSWER: 0 
+
+
+
+
 --5. What store employee (get the id) sold the most rentals?
 
+SELECT staff_id
+FROM rental
+GROUP BY staff_id
+ORDER BY COUNT(*) DESC
+
+-> ANSWER: staff_id 1 = Mike Hillyer
+
+
+
+
 --6. How many different district names are there?
+ 
+SELECT COUNT(DISTINCT district) AS unique_district_count
+FROM address;
+
+-> ANSWER: 378
+
+
+
 
 --7. What film has the most actors in it? (use film_actor table and get film_id)
+
+SELECT film_id
+
+
+
 
 --8. From store_id 1, how many customers have a last name ending with ‘es’? (use customer table)
 
