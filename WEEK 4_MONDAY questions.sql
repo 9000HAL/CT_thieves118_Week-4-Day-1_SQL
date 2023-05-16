@@ -164,3 +164,6 @@ FROM film
 GROUP BY rating
 
 -- ORDER the groups in descending order based on "film_count"
+ORDER BY COUNT(*) DESC
+
+-> ANSWER: PG-13
