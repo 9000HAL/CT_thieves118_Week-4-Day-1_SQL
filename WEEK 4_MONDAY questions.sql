@@ -86,14 +86,37 @@ FROM address;
 --7. What film has the most actors in it? (use film_actor table and get film_id)
 
 SELECT film_id
+FROM film_actor
+GROUP BY film_id
+ORDER BY COUNT(*) DESC
+
+-> ANSWER: film_id 508
 
 
 
 
 --8. From store_id 1, how many customers have a last name ending with ‘es’? (use customer table)
 
+SELECT COUNT(*) as customer_count
+FROM customer
+WHERE store_id = 1 AND last_name LIKE '%es';
+
+
+-> ANSWER: 13
+
+
+
+
 --9. How many payment amounts (4.99, 5.99, etc.) had a number of rentals above 250 for customers
 with ids between 380 and 430? (use group by and having > 250)
+
+
+-- Select the payment amount and count the number of rentals
+SELECT amount, 
+
+
+
+
 
 --10. Within the film table, how many rating categories are there? And what rating has the most
 movies total?
