@@ -101,22 +101,66 @@ SELECT COUNT(*) as customer_count
 FROM customer
 WHERE store_id = 1 AND last_name LIKE '%es';
 
-
 -> ANSWER: 13
 
 
 
 
 --9. How many payment amounts (4.99, 5.99, etc.) had a number of rentals above 250 for customers
-with ids between 380 and 430? (use group by and having > 250)
+--with ids between 380 and 430? (use group by and having > 250)
 
 
--- Select the payment amount and count the number of rentals
-SELECT amount, 
+-- SELECT the payment amount + count the number of rentals
+SELECT amount, COUNT(*) AS rental_count
 
+-- SPECIFY the tables involved
+FROM payment, rental, customers
+
+-- CONNECT payments + rentals based on "rental_id"
+WHERE payment.rental_id = rental.rental_id
+
+-- CONNECT rentals + customers based on "customer_id"
+AND rental.customer_id = customers.customer_id
+
+-- FILTER customers with IDs between 380 and 430
+AND customers.customer_id BETWEEN 380 AND 430
+
+-- GROUP the results by payment amount
+GROUP BY amount
+
+-- FILTER groups where the count is greater than 250
+HAVING COUNT(*) > 250;
+
+-> ANSWER: 0
 
 
 
 
 --10. Within the film table, how many rating categories are there? And what rating has the most
 movies total?
+
+
+--(10a) Within the film table, how many rating categories are there?
+
+-- Count the distinct rating categories
+SELECT COUNT(DISTINCT rating) AS category_count
+
+-- Specify the film table
+FROM film;
+
+-> ANSWER: 5
+
+
+
+--(10b) And what rating has the most movies total? 
+
+-- SELECT the rating and count the number of movies
+SELECT rating, COUNT(*) AS film_count
+
+-- SPECIFY the film table
+FROM film
+
+-- GROUP the results by rating
+GROUP BY rating
+
+-- ORDER the groups in descending order based on "film_count"
