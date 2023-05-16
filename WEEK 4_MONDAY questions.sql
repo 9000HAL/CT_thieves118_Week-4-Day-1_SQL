@@ -167,3 +167,4 @@ GROUP BY rating
 ORDER BY COUNT(*) DESC
 
 -> ANSWER: PG-13
+
