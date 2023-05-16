@@ -152,7 +152,7 @@ ORDER BY SUM(amount) DESC;
 
 
 
--- HW #1 ------------------------------------
+-- MONDAY HW #1 ------------------------------------
 
 SELECT first_name, last_name
 FROM actor

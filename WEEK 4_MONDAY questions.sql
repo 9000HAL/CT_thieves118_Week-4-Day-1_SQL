@@ -22,6 +22,11 @@ WHERE amount >= 3.99 AND amount <= 5.99
 
 --3. What film does the store have the most of? (search in inventory)
 
+SELECT title
+FROM inventory
+GROUP BY title
+ORDER BY COUNT(*) DESC
+
 
 
 
