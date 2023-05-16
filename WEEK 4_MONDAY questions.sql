@@ -22,10 +22,30 @@ WHERE amount >= 3.99 AND amount <= 5.99
 
 --3. What film does the store have the most of? (search in inventory)
 
-SELECT title
+SELECT *
+FROM inventory;
+
+-> CURRENT ANSWER: ZORRO ARK 
+
+
+--OTHER SOLUTION DRAFTS:
+
+SELECT COUNT(film_name)
 FROM inventory
-GROUP BY title
+GROUP BY film_name
 ORDER BY COUNT(*) DESC
+
+SELECT MAX(film_id) AS film_id
+FROM title
+ORDER BY COUNT(*) DESC
+
+
+SELECT film_id, SUM()
+FROM inventory
+GROUP BY film_id
+ORDER BY COUNT(*) DESC
+
+-----------------------------------
 
 
 
