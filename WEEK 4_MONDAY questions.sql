@@ -8,13 +8,22 @@ WHERE last_name = 'Wahlberg';
 
 
 
+
 --2. How many payments were made between $3.99 and $5.99?
 
+SELECT COUNT(payment)
+FROM payment
+WHERE amount >= 3.99 AND amount <= 5.99
+
+--> ANSWER: 0
 
 
 
 
 --3. What film does the store have the most of? (search in inventory)
+
+
+
 
 --4. How many customers have the last name ‘William’?
 
